@@ -38,7 +38,8 @@ def load_vector_db():
 
     # Generate embeddings
     embeddings = HuggingFaceEmbeddings(
-        model_name="all-MiniLM-L6-v2"
+        # model_name="all-MiniLM-L6-v2"
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
     # Create FAISS vector DB
