@@ -37,7 +37,13 @@ def load_hf_model():
     model_name = "google/flan-t5-small"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-    pipe = pipeline("text2text-generation", model=model, tokenizer=tokenizer, max_length=512)
+    # pipe = pipeline("text2text-generation", model=model, tokenizer=tokenizer, max_length=512)
+    pipe = pipeline(
+        task="text2text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        max_new_tokens=256
+    )
     return HuggingFacePipeline(pipeline=pipe)
 
 llm = load_hf_model()
