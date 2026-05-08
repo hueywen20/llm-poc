@@ -71,8 +71,9 @@ Answer clearly and concisely.
 
     # Generate answer
     try:
-        result = llm.generate([prompt])  # ✅ pass list of strings
-        answer = result.generations[0][0].text  # ✅ extract text
+        # result = llm.generate([prompt])  # ✅ pass list of strings
+        # answer = result.generations[0][0].text  # ✅ extract text
+        answer = llm.invoke(prompt)
         st.subheader("Answer")
         st.write(answer)
     except Exception as e:
